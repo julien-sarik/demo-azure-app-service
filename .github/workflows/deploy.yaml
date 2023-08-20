@@ -22,7 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Set up JDK 11
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
           java-version: 11
       - name: Build with Maven
@@ -57,6 +57,9 @@ jobs:
 #    runs-on: ubuntu-latest
 #    steps:
       - uses: azure/login@v1
+      # login to azure following doc at https://github.com/marketplace/actions/azure-login
+      # create service principal to configure Azure web app:
+      # az ad sp create-for-rbac --name "github" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<resource-group> --json-auth
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
       - name: Configure image registry and container port
