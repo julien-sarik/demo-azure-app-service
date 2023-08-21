@@ -65,6 +65,7 @@ jobs:
       - name: Configure image registry and container port of the Azure web app
         uses: Azure/appservice-settings@v1
         # available settings are listed at https://learn.microsoft.com/fr-fr/azure/app-service/reference-app-settings?tabs=kudu%2Cdotnet#custom-containers
+        # authentication to the container registry is done trough a personal Github access token as documented at https://docs.github.com/fr/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authentification-avec-un-personal-access-token-classic
         with:
           app-name: app-service-demo-java
           app-settings-json: |
